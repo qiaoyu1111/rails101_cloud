@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+
+puts "Hello World !"
+
+create_clouds = for i in 1..10 do
+  Cloud.create!([title: "Cloud No.#{i}", body: "seed build cloud #{i}"])
+end
+
+# create_account = User.create([email: 'example@gmail.com', password: '123456', password_confirmation: '123456'])
