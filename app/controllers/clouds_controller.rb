@@ -13,8 +13,11 @@ class CloudsController < ApplicationController
 
   def create
     @cloud = Cloud.new(cloud_params)
-    @cloud.save
-    redirect_to clouds_path
+    if @cloud.save
+      redirect_to clouds_path
+    else
+      render :new
+    end
   end
 
   def edit
