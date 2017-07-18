@@ -39,6 +39,6 @@ class CloudsController < ApplicationController
   private
 
   def cloud_params
-    params.require(:cloud).permit(:title, :body)
+    params.require(:cloud).permit(:title, :body, :image)
   end
 end

@@ -3,5 +3,6 @@
       <%= link_to("Edit", edit_cloud_path(@cloud), class: "btn btn-primary pull-right")%>
     </div>
     <h2><%= @cloud.title %></h2>
+    <%= image_tag(@cloud.image.thumb.url) %>
     <p><%= @cloud.body %></p>
   </div>
