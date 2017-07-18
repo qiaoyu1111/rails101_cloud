@@ -4,6 +4,7 @@ class CloudsController < ApplicationController
   end
 
   def show
+    @cloud = Cloud.find(params[:id])
   end
 
   def new
@@ -23,6 +24,12 @@ class CloudsController < ApplicationController
   def update
     @cloud = Cloud.find(params[:id])
     @cloud.update(cloud_params)
+    redirect_to clouds_path
+  end
+
+  def destroy
+    @cloud = Cloud.find(params[:id])
+    @cloud.destroy
     redirect_to clouds_path
   end
 
