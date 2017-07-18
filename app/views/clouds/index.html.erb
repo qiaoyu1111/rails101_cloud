@@ -5,18 +5,28 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <td>#</td>
+        <td>Pic</td>
         <td>Title</td>
         <td>body</td>
+        <td>Editor</td>
       </tr>
     </thead>
     <tbody>
       <% @clouds.each do |cloud| %>
         <tr>
-          <td>#</td>
+          <td>
+            <%= link_to cloud_path(cloud) do %>
+              <% if cloud.image.present? %>
+                <%= image_tag(cloud.image.thumb.url, class: "thumbnail") %>
+              <% else %>
+                <%= image_tag("http://placehold.it/100x100&text=No Pic", class: "thumbnail") %>
+              <% end %>
+            <% end %>
+          </td>
           <td><%= link_to(cloud.title, cloud_path(cloud)) %></td>
           <td><%= cloud.body %></td>
           <td>
+              <%=link_to("Download", cloud.image_url)%>
               <%= link_to("Edit", edit_cloud_path(cloud), class: "btn btn-sm btn-default")%>
               <%= link_to("Delete", cloud_path(cloud),    class: "btn btn-sm btn-default",
                           method: :delete, data: { confirm: "Are you sure?" } )%>

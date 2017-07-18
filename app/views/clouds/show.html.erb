@@ -2,7 +2,25 @@
     <div class="group">
       <%= link_to("Edit", edit_cloud_path(@cloud), class: "btn btn-primary pull-right")%>
     </div>
-    <h2><%= @cloud.title %></h2>
-    <%= image_tag(@cloud.image.thumb.url) %>
-    <p><%= @cloud.body %></p>
+
+    <div class="col-md-6">
+      <% if @cloud.image.present? %>
+        <%= image_tag(@cloud.image.medium.url, class: "thumbnail") %>
+      <% else %>
+        <%= image_tag("http://placehold.it/500x500&text=No Pic", class: "thumbnail") %>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <h2> <%= @cloud.title %> </h2>
+      <div style="height:100px;">
+        <p>
+          <%= @cloud.body %>
+
+        </p>
+      </div>
+      <div class="pull-right">
+        <%= link_to("加入收藏夹", "#", :class => "btn btn-danger btn-lg") %>
+      </div>
+    </div>
   </div>
