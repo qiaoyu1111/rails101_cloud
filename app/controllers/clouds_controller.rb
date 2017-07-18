@@ -16,6 +16,16 @@ class CloudsController < ApplicationController
     redirect_to clouds_path
   end
 
+  def edit
+    @cloud = Cloud.find(params[:id])
+  end
+
+  def update
+    @cloud = Cloud.find(params[:id])
+    @cloud.update(cloud_params)
+    redirect_to clouds_path
+  end
+
   private
 
   def cloud_params
