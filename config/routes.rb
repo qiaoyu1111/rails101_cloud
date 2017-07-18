@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'clouds#index'
+  resources :clouds
 end

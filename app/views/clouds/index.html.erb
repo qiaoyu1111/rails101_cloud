@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to("New cloud", new_cloud_path, class: "btn btn-primary pull-right") %>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>Title</td>
+        <td>body</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @clouds.each do |cloud| %>
+        <tr>
+          <td>#</td>
+          <td><%= link_to(cloud.title, cloud_path(cloud)) %></td>
+          <td><%= cloud.body %></td>
+          <td>
+              <%= link_to("Edit", edit_cloud_path(cloud), class: "btn btn-sm btn-default")%>
+              <%= link_to("Delete", cloud_path(cloud),    class: "btn btn-sm btn-default",
+                          method: :delete, data: { confirm: "Are you sure?" } )%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
